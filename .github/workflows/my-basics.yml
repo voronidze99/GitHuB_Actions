@@ -19,9 +19,17 @@ jobs:
       run: |
         echo "hello message"
         echo "Application name: ${{ env.APPLICATION_NAME }}"
+  
+    - name: List Curent
+      run : ls -la
+
+    - name: Git Clone my repo
+      uses: actions/checkout@v1
+      # git clone repo
 
     - name: List Curent
       run : ls -la
+
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my_testing] #делает чтоб кманда запускалась после  
@@ -32,3 +40,9 @@ jobs:
 
     - name: Printing Deploy package
       run : echo "Deploy pckage namer is ${{ env.PACKAGE_NAME }}"
+
+    - name: Lets test save package
+      run : aws --version
+      
+    - name: Lets test save package
+      run : zip
